@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair bold";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
+}
+.navigation__desktop {
+  width: 100%;
+  height: 15vh;
+  padding: 2rem;
+  background-image: linear-gradient(#7ed56f, #28b485);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in;
+}
+.navigation__desktop .navigation__logo {
+  font-family: "PlayFair";
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 2rem;
+}
+.navigation__desktop .navigation__links--desktop {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+.navigation__desktop .navigation__links--desktop .navigation__link--desktop {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Source Sans Pro";
+}
+.navigation__desktop .navigation__links--desktop .navigation__link--desktop a {
+  padding: 1rem;
+  margin: 0 1rem;
+  color: rgb(228, 223, 223);
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+.navigation__desktop .navigation__links--desktop .navigation__link--desktop a:hover, .navigation__desktop .navigation__links--desktop .navigation__link--desktop a:active {
+  color: #fff;
+  transform: scale(1.04);
+}
+
+/*# sourceMappingURL=desktop-navigation.css.map */
