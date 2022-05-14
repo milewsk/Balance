@@ -6,3 +6,5 @@ const Navigation = (): JSX.Element => {
   const dispatch = useAppDispatch();
   return <div></div>;
 };
+
+export default Navigation;
