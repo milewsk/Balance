@@ -1,8 +1,9 @@
 import React from "react";
+import Layout from "./app/components/Layout/Layout";
 import "./sass/app.scss";
 
 function App() {
-  return <div className="App"></div>;
+  return <Layout></Layout>;
 }
 
 export default App;

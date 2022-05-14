@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 const DesktopNavigation = (): JSX.Element => {
   const typeOfNavigation = useAppSelector((state) => state.navigation);
   const dispatch = useAppDispatch();
-  return <div></div>;
+  return <div>desktop nav</div>;
 };
 
 export default DesktopNavigation;

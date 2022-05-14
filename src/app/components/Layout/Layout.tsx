@@ -12,3 +12,5 @@ const Layout = (): JSX.Element => {
     </Fragment>
   );
 };
+
+export default Layout;

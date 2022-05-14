@@ -21,9 +21,18 @@ export const NavigationSlice = createSlice({
     closeMobileLinks: (state: INavigationState) => {
       state.mobileLinksOpen = false;
     },
+
+    checkWidth: (state: INavigationState) => {
+      if (window.innerWidth > 767) {
+        state.navigation = "desktop";
+      } else {
+        state.navigation = "mobile";
+      }
+    },
   },
 });
 
-export const { openMobileLinks, closeMobileLinks } = NavigationSlice.actions;
+export const { openMobileLinks, closeMobileLinks, checkWidth } =
+  NavigationSlice.actions;
 
 export default NavigationSlice.reducer;
