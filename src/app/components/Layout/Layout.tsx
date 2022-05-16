@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
+import Login from "../Login/Login";
 import Navigation from "../Navigation/Navigation";
 
 const Layout = (): JSX.Element => {
@@ -8,7 +10,11 @@ const Layout = (): JSX.Element => {
   return (
     <Fragment>
       <Navigation></Navigation>
-      <main></main>
+      <main>
+        <Outlet></Outlet>
+      </main>
     </Fragment>
   );
 };
+
+export default Layout;

@@ -1,0 +1,60 @@
+@use "../../base/colors";
+@use "../../base/fonts";
+
+.navigation__desktop {
+  width: 100%;
+  height: 15vh;
+
+  padding: 2rem;
+
+  background-image: colors.$gradient-primary;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all 0.3s ease-in;
+
+  .navigation__logo {
+    font-family: "PlayFair";
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: colors.$color-white;
+    text-decoration: none;
+
+    padding: 0 2rem;
+  }
+
+  .navigation__links--desktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    list-style: none;
+    backface-visibility: hidden;
+
+    .navigation__link--desktop {
+      font-size: 2.4rem;
+      font-weight: 600;
+      font-family: "Source Sans Pro";
+
+      transition: all 0.2s ease-in;
+
+      &:hover,
+      &:active {
+        transform: translateY(-0.3rem);
+      }
+
+      a {
+        padding: 1rem;
+        margin: 0 1rem;
+
+        color: colors.$color-white;
+        text-decoration: none;
+      }
+    }
+  }
+}

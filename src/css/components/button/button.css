@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair bold";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
+}
+.btn {
+  text-align: center;
+  color: white;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.btn--transparent {
+  background-color: transparent;
+  color: #fff;
+  border: 3px solid rgb(228, 223, 223);
+}
+.btn--transparent:hover, .btn--transparent:active {
+  background-color: white;
+  color: #55c57a;
+  border: 2px solid white;
+  box-shadow: 0 0 1.3rem rgba(255, 255, 255, 0.6);
+}
+.btn-filled {
+  background-color: rgba(85, 197, 122, 0.8);
+  box-shadow: 0 0.5rem 1rem rgba(85, 85, 85, 0.15);
+}
+.btn-filled:hover, .btn-filled:active {
+  transform: translateY(-0.5rem) scale(1.05);
+  background-color: #55c57a;
+}
+.btn--small {
+  width: 15rem;
+  padding: 0.6rem 0rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .btn--small {
+    width: 20rem;
+    padding: 1.2rem 0;
+    font-size: 1.7rem;
+  }
+}
+
+/*# sourceMappingURL=button.css.map */
