@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
+import Login from "../Login/Login";
 import Navigation from "../Navigation/Navigation";
 
 const Layout = (): JSX.Element => {
@@ -10,10 +11,7 @@ const Layout = (): JSX.Element => {
     <Fragment>
       <Navigation></Navigation>
       <main>
-        {/* <Routes>
-          <Route element={<div></div>}></Route>
-          <Route path="/"></Route>
-        </Routes> */}
+        <Outlet></Outlet>
       </main>
     </Fragment>
   );
