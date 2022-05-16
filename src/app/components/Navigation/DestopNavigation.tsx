@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../../sass/components/navigation/desktop-navigation.scss";
+import "../../../sass/components/button/button.scss";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 const DesktopNavigation = (): JSX.Element => {
@@ -23,7 +24,7 @@ const DesktopNavigation = (): JSX.Element => {
         <li className="navigation__link--desktop">
           <Link to="/operation">Operation</Link>
         </li>
-        {<button>Sign in</button>}
+        {<button className="btn btn--small btn--transparent">Sign in</button>}
       </ul>
     </nav>
   );

@@ -21,7 +21,7 @@
   .navigation__logo {
     font-family: "PlayFair";
     font-size: 3.5rem;
-    font-weight: 500;
+    font-weight: 600;
     color: colors.$color-white;
     text-decoration: none;
 
@@ -34,26 +34,26 @@
     align-items: center;
 
     list-style: none;
+    backface-visibility: hidden;
 
     .navigation__link--desktop {
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 600;
       font-family: "Source Sans Pro";
+
+      transition: all 0.2s ease-in;
+
+      &:hover,
+      &:active {
+        transform: translateY(-0.3rem);
+      }
 
       a {
         padding: 1rem;
         margin: 0 1rem;
 
-        color: colors.$color-white-smoke;
+        color: colors.$color-white;
         text-decoration: none;
-
-        transition: all 0.2s linear;
-
-        &:hover,
-        &:active {
-          color: colors.$color-white;
-          transform: scale(1.04);
-        }
       }
     }
   }

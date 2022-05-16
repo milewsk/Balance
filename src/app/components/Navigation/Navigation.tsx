@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { checkWidth } from "../../store/navigationSlice";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 import DesktopNavigation from "./DestopNavigation";
+import MobileLinks from "./MobileLinks";
 import MobileNavigation from "./MobileNavigation";
 
 const Navigation = (): JSX.Element => {
@@ -32,7 +33,12 @@ const Navigation = (): JSX.Element => {
       {typeOfNavigation === "desktop" && (
         <DesktopNavigation></DesktopNavigation>
       )}
-      {typeOfNavigation === "mobile" && <MobileNavigation></MobileNavigation>}
+      {typeOfNavigation === "mobile" && (
+        <Fragment>
+          <MobileNavigation></MobileNavigation>
+          <MobileLinks></MobileLinks>
+        </Fragment>
+      )}
     </Fragment>
   );
 };

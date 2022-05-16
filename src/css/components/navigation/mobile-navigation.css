@@ -1,3 +1,96 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro"), url(../../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PlayFair bold";
+  src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
+}
+.navigation__mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 10vh;
+  padding: 1rem;
+  overflow: hidden;
+  background-image: linear-gradient(#7ed56f, #28b485);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in;
+}
+.navigation__mobile * {
+  margin: 0 1.5rem;
+}
+.navigation__mobile .navigation__logo {
+  font-family: "PlayFair";
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+.navigation__mobile .navigation__menu {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s linear;
+}
+.navigation__mobile .navigation__menu .hm-bar {
+  position: absolute;
+  width: 2.5rem;
+  height: 0.3rem;
+  margin: 0.3rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+.navigation__mobile .navigation__menu .hm-bar-one, .navigation__mobile .navigation__menu .hm-bar-three {
+  transform: rotate(0);
+}
+.navigation__mobile .navigation__menu .hm-bar-one {
+  transform: translateY(-0.7rem);
+}
+.navigation__mobile .navigation__menu .hm-bar-three {
+  transform: translateY(0.7rem);
+}
+.navigation__mobile .navigation__menu .hm-bar-two {
+  opacity: 1;
+  transform: translateX(0);
+}
+.navigation__mobile .navigation__menu--open .hm-bar-one {
+  transform: rotate(45deg);
+}
+.navigation__mobile .navigation__menu--open .hm-bar-two {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.navigation__mobile .navigation__menu--open .hm-bar-three {
+  transform: rotate(-45deg);
+}
 
+.full-fill {
+  background-image: none;
+  background-color: transparent;
+}
 
 /*# sourceMappingURL=mobile-navigation.css.map */
