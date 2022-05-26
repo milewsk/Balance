@@ -108,7 +108,7 @@
   transform: translateY(0.5rem);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .login-page {
     flex-direction: row;
   }
