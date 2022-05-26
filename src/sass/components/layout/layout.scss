@@ -1,0 +1,14 @@
+@use "../../base/colors";
+@use "../../base/fonts";
+
+main {
+  width: 100%;
+  height: auto;
+  margin-top: 10vh;
+}
+
+@media screen and (min-width: 767px) {
+  main {
+    margin-top: 15vh;
+  }
+}

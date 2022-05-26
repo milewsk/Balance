@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
-import Login from "../Login/Login";
+import "../../../sass/components/layout/layout.scss";
 import Navigation from "../Navigation/Navigation";
 
 const Layout = (): JSX.Element => {
