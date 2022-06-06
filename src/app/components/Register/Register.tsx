@@ -5,8 +5,22 @@ import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 import "../../../sass/components/account/register.scss";
 import "../../../sass/components/button/button.scss";
+import UserService from "../../services/UserService";
 
 const Register = (): JSX.Element => {
+  const submitHandler = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formElements = form.elements as typeof form.elements & {
+      emailInput: { value: string };
+      passwordInput: { value: string };
+    };
+
+    const email: string = formElements.emailInput.value;
+    const password: string = formElements.passwordInput.value;
+  };
+
   return (
     <div className="register-page">
       <div className="register-page__intro">
@@ -15,7 +29,7 @@ const Register = (): JSX.Element => {
           Balance - kontroluj swoją firmę
         </div>
       </div>
-      <form className="register-page__form">
+      <form onSubmit={submitHandler} className="register-page__form">
         <h2 className="register-page__title">Zarejestruj się</h2>
         <label>Email</label>
         <input placeholder="Expample@gmail.com" type="text"></input>

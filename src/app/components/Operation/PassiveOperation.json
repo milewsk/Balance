@@ -1,0 +1,62 @@
+[
+  {
+    "Identifier": "A",
+    "Type": "Pasywa",
+    "Name": "Kapitał (fundusz)własny",
+    "Parent": null
+  },
+  {
+    "Identifier": "A1",
+    "Type": "Pasywa",
+    "Name": "Kapitał podstawowy",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A2",
+    "Type": "Pasywa",
+    "Name": "Kapitał zapasowy",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A21",
+    "Type": "Pasywa",
+    "Name": "Nadwyżka wartości sprzedaży",
+    "Parent": "A2"
+  },
+  {
+    "Identifier": "A3",
+    "Type": "Pasywa",
+    "Name": "Kapitał z aktalizacji wyceny",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A31",
+    "Type": "Pasywa",
+    "Name": "Z tytułu aktualizacji wartości godzinowej",
+    "Parent": "A3"
+  },
+  {
+    "Identifier": "A4",
+    "Type": "Pasywa",
+    "Name": "Pozostałe kapitały rezerwowe",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A5",
+    "Type": "Pasywa",
+    "Name": "Zysk (strata) z lat ubiegłych",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A6",
+    "Type": "Pasywa",
+    "Name": "Zysk (strata) netto",
+    "Parent": "A"
+  },
+  {
+    "Identifier": "A7",
+    "Type": "Pasywa",
+    "Name": "Odpisy z zysku netto w ciągu roku obrotowego (ujemna)",
+    "Parent": "A"
+  }
+]

@@ -8,23 +8,23 @@ import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 const Login = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    fetch("https://localhost:44360/api/accounts", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://localhost:44360/api/accounts", {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   const SendRequest = async (email: string, passowrd: string) => {
     try {
@@ -45,7 +45,9 @@ const Login = (): JSX.Element => {
     }
   };
 
-  const submitHandler = (event: React.SyntheticEvent<HTMLFormElement>) => {
+  const submitHandler = async (
+    event: React.SyntheticEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -58,6 +60,8 @@ const Login = (): JSX.Element => {
     const password: string = formElements.passwordInput.value;
 
     SendRequest(email, password);
+
+    const response;
   };
 
   return (
