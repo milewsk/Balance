@@ -11,13 +11,15 @@ import NewOperation from "./app/components/Operation/NewOperation";
 import Operation from "./app/components/Operation/Operation";
 import Register from "./app/components/Register/Register";
 import Welcome from "./app/components/Start/Welcome";
+import { useAppSelector } from "./app/store/storeHooks";
 import "./sass/app.scss";
 
 function App() {
-  const isLogged = true;
+  const isLogged = useAppSelector((state) => state.account.isLoggedIn);
+
   return (
     <Routes>
-      {isLogged && (
+      {!isLogged && (
         <Route path="/">
           <Route
             path="newOperation"
@@ -29,14 +31,12 @@ function App() {
           <Route index element={<Welcome></Welcome>}></Route>
         </Route>
       )}
-      {!isLogged && (
+      {isLogged && (
         <Route path="/" element={<Layout></Layout>}>
           <Route path="home" element={<Home></Home>}></Route>
           <Route path="account">
             <Route path="accounts" element={<Accounts></Accounts>}>
-              <Route path=":accountId">
-                <AccountHistory></AccountHistory>
-              </Route>
+              <Route path=":accountId"></Route>
             </Route>
             <Route index element={<AccountPage></AccountPage>}></Route>
           </Route>

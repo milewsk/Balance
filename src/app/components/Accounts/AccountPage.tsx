@@ -24,7 +24,7 @@ const AccountPage = (): JSX.Element => {
           </button>
         </li>
         <li>
-          <button className="btn btn--transparent btn--medium" onClick={}>
+          <button className="btn btn--transparent btn--medium">
             Historia konta
           </button>
         </li>

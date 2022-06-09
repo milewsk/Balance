@@ -8,41 +8,25 @@ import React, {
 import { Link } from "react-router-dom";
 import "../../../sass/components/account/login.scss";
 import "../../../sass/components/button/button.scss";
-import OperationList from "./OperationsList.json";
+import ActiveOperation from "./ActiveOperations";
 
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 import { json } from "stream/consumers";
-
-const SendRequest = async (email: string, passowrd: string) => {
-  try {
-    const response = await fetch(
-      `https://localhost:44360/api/user/${email}/${passowrd}`,
-      { method: "GET" }
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-    } else {
-      const data = await response.json();
-      throw new Error(data.message);
-    }
-  } catch (error: any) {
-    console.log(error.message);
-  }
-};
+import { Collection } from "typescript";
+import { AnyArray } from "immer/dist/internal";
 
 interface IOperation {
   Identifier: string;
   Name: string;
-  Type: number;
+  Type: string;
+  Parent: string | null;
 }
 
 const NewOperation = (): JSX.Element => {
   const [firstSelect, setFirstSelect] = useState("Wybierz operację");
   const [secondSelect, setSecoundSelect] = useState("Wybierz operację");
 
-  const List = OperationList;
+  const List: Array<IOperation> = ActiveOperation;
 
   const FirstSelectHandler: React.ChangeEventHandler<HTMLSelectElement> = (
     event
@@ -64,10 +48,10 @@ const NewOperation = (): JSX.Element => {
       operation2: { Identifier: string };
     };
 
-    const Operation1 = List.find((item) => {
+    const Operation1 = List.find((item: IOperation) => {
       return item.Identifier === target.operation1.Identifier;
     });
-    const Operation2 = List.find((item) => {
+    const Operation2 = List.find((item: IOperation) => {
       return item.Identifier === target.operation2.Identifier;
     });
 
@@ -89,7 +73,7 @@ const NewOperation = (): JSX.Element => {
           value={firstSelect}
           onChange={FirstSelectHandler}
         >
-          {List.map((item) => {
+          {List.map((item: IOperation) => {
             return <option value={item.Identifier}>{item.Name}</option>;
           })}
         </select>
@@ -98,7 +82,7 @@ const NewOperation = (): JSX.Element => {
           value={secondSelect}
           onChange={SecondSelectHandler}
         >
-          {List.map((item) => {
+          {List.map((item: IOperation) => {
             return <option value={item.Identifier}>{item.Name}</option>;
           })}
         </select>

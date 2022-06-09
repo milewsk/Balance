@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import "../../../sass/components/account/login.scss";
 import "../../../sass/components/button/button.scss";
 
+import IResponse from "../../interfaces/IResponse";
+import UserService from "../../services/UserService";
+import { userLogin } from "../../store/accountSlice";
+
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 const Login = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
+
+  const dispatch = useAppDispatch();
 
   // useEffect(() => {
   //   fetch("https://localhost:44360/api/accounts", {
@@ -26,25 +32,6 @@ const Login = (): JSX.Element => {
   //     });
   // }, []);
 
-  const SendRequest = async (email: string, passowrd: string) => {
-    try {
-      const response = await fetch(
-        `https://localhost:44360/api/user/${email}/${passowrd}`,
-        { method: "GET" }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        const data = await response.json();
-        throw new Error(data.message);
-      }
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
   const submitHandler = async (
     event: React.SyntheticEvent<HTMLFormElement>
   ) => {
@@ -59,9 +46,11 @@ const Login = (): JSX.Element => {
     const email: string = formElements.emailInput.value;
     const password: string = formElements.passwordInput.value;
 
-    SendRequest(email, password);
+    let responseJSON: IResponse = await UserService.LoginUser(email, password);
 
-    const response;
+    if (responseJSON.Status === 200) {
+      dispatch(userLogin(responseJSON.ReurnData));
+    }
   };
 
   return (

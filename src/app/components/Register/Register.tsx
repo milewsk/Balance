@@ -1,14 +1,18 @@
 import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { checkWidth } from "../../store/navigationSlice";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 import "../../../sass/components/account/register.scss";
 import "../../../sass/components/button/button.scss";
 import UserService from "../../services/UserService";
+import { userLogin } from "../../store/accountSlice";
 
 const Register = (): JSX.Element => {
-  const submitHandler = (event: React.SyntheticEvent<HTMLFormElement>) => {
+  const dispatch = useAppDispatch();
+
+  const submitHandler = async (
+    event: React.SyntheticEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -19,6 +23,10 @@ const Register = (): JSX.Element => {
 
     const email: string = formElements.emailInput.value;
     const password: string = formElements.passwordInput.value;
+
+    let responseJSON: string = await UserService.RegisterUser(email, password);
+
+    dispatch(userLogin(JSON.parse(responseJSON)));
   };
 
   return (

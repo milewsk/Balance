@@ -1,22 +1,21 @@
 import React, { Fragment, useEffect } from "react";
+import { JsonObjectExpression } from "typescript";
+import IResponse from "../interfaces/IResponse";
 
 const UserService = {
   LoginUser: async (email: string, passowrd: string) => {
-    try {
-      const response = await fetch(
-        `https://localhost:44360/api/user/${email}/${passowrd}`,
-        { method: "GET" }
-      );
+    const response = await fetch(
+      `https://localhost:44360/api/user/${email}/${passowrd}`,
+      { method: "GET" }
+    );
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        const data = await response.json();
-        throw new Error(data.message);
-      }
-    } catch (error: any) {
-      console.log(error.message);
+    if (response.ok) {
+      const data: IResponse = await response.json();
+      console.log(data);
+      return data;
+    } else {
+      const data: IResponse = await response.json();
+      return data;
     }
   },
 
@@ -34,14 +33,14 @@ const UserService = {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        const data: string = await response.json();
         return data;
       } else {
-        const data = await response.json();
+        const data: string = await response.json();
         return data;
       }
     } catch (error: any) {
-      return error;
+      return "error";
     }
   },
 };

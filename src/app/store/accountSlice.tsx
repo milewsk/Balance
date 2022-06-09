@@ -1,25 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { stat } from "fs";
 
 interface IAccountState {
   isLoggedIn: boolean;
+  email: string;
   token: string | null;
   sessionRemainingTime: number;
 }
 
 const initialState: IAccountState = {
   isLoggedIn: false,
+  email: "",
   token: null,
   sessionRemainingTime: 0,
 };
 
-export const AccountSilce = createSlice({
+export const AccountSlice = createSlice({
   name: "AccountController",
   initialState,
   reducers: {
-    userLogin: (state: IAccountState) => {},
+    userLogin: (state: IAccountState, action: PayloadAction<string>) => {
+      state.isLoggedIn = true;
+      state.email = action.payload;
+    },
 
     userLogout: (state: IAccountState) => {
       state.isLoggedIn = false;
+      state.email = "";
       state.token = null;
       state.sessionRemainingTime = 0;
     },
@@ -43,3 +50,7 @@ const retriveStoredToken = () => {
     Number(storedExpirationTime)
   );
 };
+
+export const { userLogin, userLogout } = AccountSlice.actions;
+
+export default AccountSlice.reducer;
