@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import { closeMobileLinks } from "../../store/navigationSlice";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 import "../../../sass/components/navigation/mobile-links.scss";
+import { userLogout } from "../../store/accountSlice";
 
 const MobileLinks = (): JSX.Element => {
   const areLinksOpen = useAppSelector(
     (state) => state.navigation.mobileLinksOpen
   );
+
+  const isLogged = useAppSelector((state) => state.account.isLoggedIn);
   const dispatch = useAppDispatch();
 
   const active = classNames("navigation-mobile__nav", {
@@ -17,6 +20,11 @@ const MobileLinks = (): JSX.Element => {
 
   const closeLinksHandler = () => {
     dispatch(closeMobileLinks());
+  };
+
+  const logoutHandler = () => {
+    dispatch(closeMobileLinks());
+    dispatch(userLogout());
   };
 
   return (
@@ -28,20 +36,22 @@ const MobileLinks = (): JSX.Element => {
           </Link>
         </li>
         <li className="navigation-mobile__item">
-          <Link onClick={closeLinksHandler} to="/about">
-            About me
+          <Link onClick={closeLinksHandler} to="/account">
+            Konta
           </Link>
         </li>
         <li className="navigation-mobile__item">
-          <Link onClick={closeLinksHandler} to="/portfolio">
-            Projects
+          <Link onClick={closeLinksHandler} to="/operation">
+            Operacje
           </Link>
         </li>
-        <li className="navigation-mobile__item">
-          <Link onClick={closeLinksHandler} to="/contact">
-            Contact me
-          </Link>
-        </li>
+        {isLogged && (
+          <li className="navigation-mobile__item">
+            <Link onClick={logoutHandler} to="/contact">
+              Wyloguj
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

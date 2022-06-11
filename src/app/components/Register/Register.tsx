@@ -1,12 +1,47 @@
 import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { checkWidth } from "../../store/navigationSlice";
 import { useAppDispatch, useAppSelector } from "../../store/storeHooks";
 
 import "../../../sass/components/account/register.scss";
 import "../../../sass/components/button/button.scss";
+import UserService from "../../services/UserService";
+import { userLogin } from "../../store/accountSlice";
+import IResponse from "../../interfaces/IResponse";
 
 const Register = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+
+  const submitHandler = async (
+    event: React.SyntheticEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formElements = form.elements as typeof form.elements & {
+      emailInput: { value: string };
+      passwordInput: { value: string };
+    };
+
+    const email: string = formElements.emailInput.value;
+    const password: string = formElements.passwordInput.value;
+
+    let responseJSON: IResponse = await UserService.RegisterUser(
+      email,
+      password
+    );
+
+    if (responseJSON.Status === 200) {
+      const expirationTime = new Date().getTime() + 100000;
+
+      dispatch(
+        userLogin({
+          email: responseJSON.ReturnData,
+          expirationTime: expirationTime,
+        })
+      );
+    }
+  };
+
   return (
     <div className="register-page">
       <div className="register-page__intro">
@@ -15,12 +50,20 @@ const Register = (): JSX.Element => {
           Balance - kontroluj swoją firmę
         </div>
       </div>
-      <form className="register-page__form">
+      <form onSubmit={submitHandler} className="register-page__form">
         <h2 className="register-page__title">Zarejestruj się</h2>
         <label>Email</label>
-        <input placeholder="Expample@gmail.com" type="text"></input>
+        <input
+          placeholder="Expample@gmail.com"
+          type="text"
+          id="emailInput"
+        ></input>
         <label>Hasło</label>
-        <input placeholder="Wpisz swoje hasło" type="passowrd"></input>
+        <input
+          placeholder="Wpisz swoje hasło"
+          id="passwordInput"
+          type="passowrd"
+        ></input>
         <p className="register-page__redirect">
           Masz już konto? <Link to="/login">Zaloguj się</Link>
         </p>

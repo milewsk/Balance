@@ -51,6 +51,13 @@
   border-radius: 4px;
   font-weight: 700;
 }
+.btn__desktop--medium {
+  width: 20rem;
+  padding: 0.8rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 2rem;
+}
 .btn--medium {
   width: 80%;
   padding: 1.4rem 0rem;
