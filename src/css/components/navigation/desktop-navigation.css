@@ -47,7 +47,7 @@
   backface-visibility: hidden;
 }
 .navigation__desktop .navigation__links--desktop .navigation__link--desktop {
-  font-size: 2.4rem;
+  font-size: 2.7rem;
   font-weight: 600;
   font-family: "Source Sans Pro";
   transition: all 0.2s ease-in;
@@ -56,7 +56,7 @@
   transform: translateY(-0.3rem);
 }
 .navigation__desktop .navigation__links--desktop .navigation__link--desktop a {
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 0 1rem;
   color: #fff;
   text-decoration: none;

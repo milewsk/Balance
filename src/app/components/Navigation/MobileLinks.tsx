@@ -36,20 +36,20 @@ const MobileLinks = (): JSX.Element => {
           </Link>
         </li>
         <li className="navigation-mobile__item">
-          <Link onClick={closeLinksHandler} to="/about">
-            About me
+          <Link onClick={closeLinksHandler} to="/account">
+            Konta
           </Link>
         </li>
         <li className="navigation-mobile__item">
-          <Link onClick={closeLinksHandler} to="/portfolio">
-            Projects
+          <Link onClick={closeLinksHandler} to="/operation">
+            Operacje
           </Link>
         </li>
         {isLogged && (
           <li className="navigation-mobile__item">
             <Link onClick={logoutHandler} to="/contact">
               Wyloguj
-            </Link>{" "}
+            </Link>
           </li>
         )}
       </ul>

@@ -14,6 +14,7 @@ const Login = (): JSX.Element => {
 
   const dispatch = useAppDispatch();
 
+  console.log(useAppSelector((state) => state.account.isLoggedIn));
   // useEffect(() => {
   //   fetch("https://localhost:44360/api/accounts", {
   //     method: "GET",
@@ -49,7 +50,14 @@ const Login = (): JSX.Element => {
     let responseJSON: IResponse = await UserService.LoginUser(email, password);
 
     if (responseJSON.Status === 200) {
-      dispatch(userLogin(responseJSON.ReurnData));
+      const expirationTime = new Date().getTime() + 100000;
+
+      dispatch(
+        userLogin({
+          email: responseJSON.ReturnData,
+          expirationTime: expirationTime,
+        })
+      );
     }
   };
 

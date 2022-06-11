@@ -18,7 +18,7 @@
   font-family: "PlayFair bold";
   src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
 }
-.accounts-page__list {
+.account-option__box {
   min-width: 100%;
   max-width: 100%;
   padding: 5rem;
@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
 }
-.accounts-page__list li {
+.account-option__box li {
   padding: 5rem;
 }
 
