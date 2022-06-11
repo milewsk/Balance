@@ -18,20 +18,5 @@
   font-family: "PlayFair bold";
   src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
 }
-main {
-  width: 100%;
-  height: auto;
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
-}
 
-@media screen and (min-width: 767px) {
-  main {
-    margin-top: 15vh;
-  }
-}
-
-/*# sourceMappingURL=layout.css.map */
+/*# sourceMappingURL=accountsPage.css.map */

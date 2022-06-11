@@ -6,7 +6,7 @@ const UserService = {
   LoginUser: async (email: string, passowrd: string) => {
     const response = await fetch(
       `https://localhost:44360/api/user/${email}/${passowrd}`,
-      { method: "GET" }
+      { method: "GET", headers: { "Access-Control-Allow-Origin": "*" } }
     );
 
     if (response.ok) {

@@ -1,25 +1,25 @@
 import React, { Fragment, useEffect } from "react";
+import IResponse from "../interfaces/IResponse";
+import { IResponseAccounts } from "../interfaces/IAccount";
 
 const AccountService = {
-  GetAccounts: async (UserID: number) => {
-    try {
-      const response = await fetch(`https://localhost:44360/api/accounts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userId: UserID }),
-      });
+  GetAccounts: async (email: string) => {
+    const response = await fetch(`https://localhost:44360/api/accounts`, {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        const data = await response.json();
-        throw new Error(data.message);
-      }
-    } catch (error: any) {
-      console.log(error.message);
+    if (response.ok) {
+      const data: IResponseAccounts = await response.json();
+      console.log(data);
+      return data;
+    } else {
+      const data: IResponseAccounts = await response.json();
+      return data;
     }
   },
 

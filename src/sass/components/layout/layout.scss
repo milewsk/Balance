@@ -5,6 +5,11 @@ main {
   width: 100%;
   height: auto;
   margin-top: 10vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
 }
 
 @media screen and (min-width: 767px) {

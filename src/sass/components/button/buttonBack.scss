@@ -1,0 +1,25 @@
+@use "../../base/colors";
+@use "../../base/fonts";
+
+.button-back {
+  &__box {
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+
+    * {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: colors.$color-primary;
+    }
+
+    svg {
+      font-size: 2.5rem;
+      margin: 0 1rem;
+    }
+  }
+}

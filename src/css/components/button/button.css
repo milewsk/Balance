@@ -65,11 +65,25 @@
   font-weight: 700;
   font-size: 2rem;
 }
+.btn--big {
+  width: 30rem;
+  padding: 1.6rem 1rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 3.5rem;
+}
 @media screen and (min-width: 768px) {
   .btn--small {
     width: 20rem;
     padding: 1.2rem 0;
     font-size: 1.7rem;
+  }
+  .btn--big {
+    width: 40rem;
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 4rem;
   }
 }
 
