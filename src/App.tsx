@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Account from "./app/components/Accounts/Account";
 import AccountOption from "./app/components/Accounts/AccountOption";
 import Accounts from "./app/components/Accounts/Accounts";
 import Home from "./app/components/Home/Home";
@@ -37,7 +38,7 @@ function App() {
           <Route path="home" element={<Home></Home>}></Route>
           <Route path="account">
             <Route path="accounts" element={<Accounts></Accounts>}>
-              <Route path=":accountId"></Route>
+              <Route path=":accountId" element={<Account></Account>}></Route>
             </Route>
             <Route index element={<AccountOption></AccountOption>}></Route>
           </Route>

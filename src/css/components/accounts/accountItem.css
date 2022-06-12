@@ -18,30 +18,28 @@
   font-family: "PlayFair bold";
   src: local("PlayFair"), url(../../fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf) format("truetype");
 }
-.accounts-description {
-  width: 100%;
-  padding: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.account-item {
+  display: grid;
+  grid-template-areas: " one two three";
+  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
-}
-.accounts-description h2 {
-  color: #55c57a;
-  font-size: 3rem;
-}
-.accounts-description p {
-  text-align: center;
-  font-size: 2rem;
   width: 80%;
-  padding: 2rem 0;
+  padding: 1rem 1rem;
+  margin: 1rem 0;
+  border: 1px solid rgba(115, 214, 106, 0.447);
+  font-size: 1.8rem;
 }
-.accounts-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.account-item .item-1 {
+  grid-area: one;
+}
+.account-item .item-2 {
+  grid-area: two;
+  font-size: 1.6rem;
+  font-size: 500;
+}
+.account-item .item-3 {
+  grid-area: three;
 }
 
-/*# sourceMappingURL=accountsPage.css.map */
+/*# sourceMappingURL=accountItem.css.map */

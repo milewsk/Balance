@@ -11,9 +11,9 @@ export interface IResponseAccount {
 }
 
 export interface IAccount {
-  ID: number;
+  AccountId: number;
   Name: string;
-  Type: string;
+  AccountType: string;
   Code: string;
   ParentCode: string | null;
   InitialState: number | null;

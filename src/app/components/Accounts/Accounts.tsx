@@ -6,41 +6,54 @@ import {
   faArrowAltCircleLeft,
   faArrowCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import "../../../sass/components/button/buttonBack.scss";
+import "../../../sass/components/accounts/accountsPage.scss";
 import { useNavigate } from "react-router-dom";
+import AccountService from "../../services/AccountService";
+import { IAccount } from "../../interfaces/IAccount";
+import AccountItem from "./AccountItem";
+import BackButton from "../Button/BackButton";
 
 const Accounts = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const [accounts, setAccounts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [accounts, setAccounts] = useState<Array<IAccount>>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const LoadAccounts = async () => {
+      const response = await AccountService.GetAccounts(
+        localStorage.getItem("email")
+      );
+
+      if (response.Status === 200) {
+        setAccounts(response.ReturnData);
+        setIsLoading(false);
+      }
+    };
+
+    LoadAccounts().catch((err) => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  console.log(accounts);
+  const AccountList = accounts.map((account) => {
+    return (
+      <AccountItem key={account.AccountId} account={account}></AccountItem>
+    );
+  });
 
   return (
     <Fragment>
-      <div className="button-back__box">
-        <FontAwesomeIcon
-          onClick={() => {
-            navigate(-1);
-          }}
-          icon={faArrowCircleLeft}
-        ></FontAwesomeIcon>
-        <p
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          Powrót
-        </p>
-      </div>
-      <div>
+      <BackButton></BackButton>
+      <div className="accounts-description">
         <h2>Twoje konta</h2>
         <p>
           W tym miejscu znajdziesz wszystkie swoje konta. Aby wyświetlić
-          szczegóły i historię konta po prostu kliknij na nie
+          szczegóły i historię konta po prostu kliknij na dowolne z nich.
         </p>
       </div>
+      <div className="accounts-list">{AccountList}</div>
     </Fragment>
   );
 };

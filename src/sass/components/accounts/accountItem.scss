@@ -1,0 +1,31 @@
+@use "../../base/colors";
+@use "../../base/fonts";
+
+.account-item {
+  display: grid;
+  grid-template-areas: " one two three";
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 1rem 1rem;
+  margin: 1rem 0;
+
+  border: 1px solid rgba(115, 214, 106, 0.447);
+
+  font-size: 1.8rem;
+
+  .item-1 {
+    grid-area: one;
+  }
+
+  .item-2 {
+    grid-area: two;
+    font-size: 1.6rem;
+    font-size: 500;
+  }
+
+  .item-3 {
+    grid-area: three;
+  }
+}

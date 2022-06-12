@@ -7,23 +7,28 @@ import {
   faArrowCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../../sass/components/button/button.scss";
+import "../../../sass/components/accounts/accountItem.scss";
 import { useNavigate } from "react-router-dom";
+import { IAccount } from "../../interfaces/IAccount";
 
-const AccountItem = (): JSX.Element => {
+interface AccountItemProps {
+  account: IAccount;
+}
+
+const AccountItem = ({ account }: AccountItemProps): JSX.Element => {
   const navigate = useNavigate();
 
   const showAccountHandler = () => {
-    navigate("/");
+    navigate(`${account.AccountId}`);
   };
   return (
     <Fragment>
       <div className="account-item">
-        <p>code</p>
-        <p>name</p>
-        <p>typ</p>
+        <p className="item-1">Kod: {account.Code}</p>
+        <p className="item-2">{account.Name}</p>
         <button
           onClick={showAccountHandler}
-          className="btn btn-filled btn--small"
+          className="btn btn-filled btn--small item-3"
         >
           Wybierz
         </button>
